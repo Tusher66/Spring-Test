@@ -23,8 +23,29 @@
 
 <form action="findById" method="POST">
 <h3>Enter programmer's Id</h3>
-<input type="text" name="pId"><br>
+<input type="text" name="pId"><br><br>
 <button type="submit">Find By Id</button>
+</form>
+
+<hr />
+
+<form action="deleteProgrammer" method="GET">
+<h3>Enter programmer's Id for </h3>
+<input type="text" name="pId"><br><br>
+<button type="submit">Delete</button>
+</form>
+
+<hr />
+
+<form action="updateProgrammer" method="POST">
+<h3>Programmmers Id:</h3>
+<input type="text" name="pId">
+<h3>Programmmers name:</h3>
+<input type="text" name="pName">
+<h3>Programmmers Language:</h3>
+<input type="text" name="pLang">
+<br><br><br>
+<button type="submit">Update Programmer</button>
 </form>
 
 </body>

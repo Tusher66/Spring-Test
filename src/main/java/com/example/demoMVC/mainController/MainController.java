@@ -54,22 +54,41 @@ public class MainController {
 	@PostMapping("/findById")
 	public String findById(@RequestParam int pId, Model model) {
 		
-//		Programmer p = pr.getOne(pId);
-//		List<Programmer> findById(pId);
-//		Programmer p=pr.getOne(pId);
-//		Programmer p=pr.findById(pId);
-		
 		System.out.println(pId);
 		
 		Optional<Programmer> q=pr.findById(pId);
 		
-		
+//		System.out.println(q.get());
+//		System.out.println(q.);
 
-		model.addAttribute("programmer",q);
+		model.addAttribute("programmer",q.get());
 		
 		return "ProgrammerInfo.html";
 	}
 	
+	@GetMapping("/deleteProgrammer")
+	public String deleteProgrammer(@RequestParam int pId) {
+		
+		pr.deleteById(pId);
+		
+		return "redirect:/home";
+	}
+	
+	
+	@PostMapping("/updateProgrammer")
+
+	public String updateProgrammer(@ModelAttribute Programmer programmer) {
+		
+//		Optional<Programmer> w=pr.findById(programmer.getpId());
+//		w.setpName(programmer.getpName());
+		Programmer p=pr.getOne(programmer.getpId());
+		p.setpName(programmer.getpName());
+		p.setpLang(programmer.getpLang());
+		
+		pr.save(p);
+		return "ProgrammerInfo.html";
+	
+	}
 	
 //	@RequestMapping("/addProgrammer")
 //	public String addProgrammer(@RequestParam int pId,@RequestParam String pName, 
