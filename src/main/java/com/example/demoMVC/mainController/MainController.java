@@ -2,6 +2,7 @@ package com.example.demoMVC.mainController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -49,14 +50,22 @@ public class MainController {
 	}
 	
 	
+
 	@PostMapping("/findById")
 	public String findById(@RequestParam int pId, Model model) {
 		
 //		Programmer p = pr.getOne(pId);
+//		List<Programmer> findById(pId);
+//		Programmer p=pr.getOne(pId);
+//		Programmer p=pr.findById(pId);
 		
-		Programmer p=pr.getOne(pId);
+		System.out.println(pId);
 		
-		model.addAttribute("programmer",p);
+		Optional<Programmer> q=pr.findById(pId);
+		
+		
+
+		model.addAttribute("programmer",q);
 		
 		return "ProgrammerInfo.html";
 	}
