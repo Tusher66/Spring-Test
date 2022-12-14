@@ -57,9 +57,6 @@ public class MainController {
 		System.out.println(pId);
 		
 		Optional<Programmer> q=pr.findById(pId);
-		
-//		System.out.println(q.get());
-//		System.out.println(q.);
 
 		model.addAttribute("programmer",q.get());
 		

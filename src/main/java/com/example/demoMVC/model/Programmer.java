@@ -22,7 +22,6 @@ public class Programmer {
 		super();
 	}
 
-	
 	public Programmer(int pId, String pName, String pLang) {
 		super();
 		this.pId = pId;
