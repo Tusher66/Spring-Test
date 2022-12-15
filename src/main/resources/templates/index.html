@@ -47,58 +47,20 @@
      <th scope="col">#</th>
       <th scope="col">Name</th>
       <th scope="col">Language</th>
-      <th scope="col">Status</th>
+     <!-- <th scope="col">Status</th>
       <th scope="col">Update</th>
+      -->
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
+    <tr th:each="programmers:${programmer}">
+      <td th:text="${programmers.pId}" />
+      <td th:text="${programmers.pName}" />
+      <td th:text="${programmers.pLang}" />
+     
       
     </tr>
     
-     <tr>
-      <th scope="row">2</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-    
-    <tr>
-      <th scope="row">2</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-    
-     <tr>
-      <th scope="row">3</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-    
-     <tr>
-      <th scope="row">4</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-    
-     <tr>
-      <th scope="row">5</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
+     
   </tbody>
 </table>
 </fieldset>

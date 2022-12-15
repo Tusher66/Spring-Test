@@ -27,12 +27,21 @@ public class MainController {
 	@Autowired
 	ProgrammerRepo pr;
 	
-//	@RequestMapping("/")
+
 	
-	@GetMapping("/home")
-	public String homePage() {
+//	@GetMapping({"/home","/"})
+//	public String homePage() {
+//		
+//		return "index.html";
+////		return "HomePage.html";
+//	}
+	
+	@GetMapping({"/home","/"})
+	public ModelAndView homePage() {
 		
-		return "index.html";
+		ModelAndView mav=new ModelAndView("index.html");
+		mav.addObject("programmer",pr.findAll());
+		return mav;
 //		return "HomePage.html";
 	}
 	
@@ -56,7 +65,7 @@ public class MainController {
 		
 		pr.save(programmer);
 
-		return "redirect:/home";
+		return "redirect:/";
 	}
 	
 	
