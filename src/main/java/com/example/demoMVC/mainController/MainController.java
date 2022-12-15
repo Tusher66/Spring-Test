@@ -51,6 +51,14 @@ public class MainController {
 		return "redirect:/home";
 	}
 	
+	@PostMapping("/addProgrammer1")
+	public String addProgrammer1(@ModelAttribute Programmer programmer) {
+		
+		pr.save(programmer);
+
+		return "redirect:/home";
+	}
+	
 	
 
 	@PostMapping("/findById")
