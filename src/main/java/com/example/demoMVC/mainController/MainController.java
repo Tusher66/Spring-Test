@@ -31,7 +31,9 @@ public class MainController {
 	
 	@GetMapping("/home")
 	public String homePage() {
-		return "HomePage.html";
+		
+		return "index.html";
+//		return "HomePage.html";
 	}
 	
 	
