@@ -28,15 +28,16 @@ public class MainController {
 	ProgrammerRepo pr;
 	
 
-	
+	@GetMapping("/home1")
 //	@GetMapping({"/home","/"})
-//	public String homePage() {
-//		
+	public String homePage1() {
+		
 //		return "index.html";
-////		return "HomePage.html";
-//	}
+		return "HomePage.html";
+	}
 	
 	@GetMapping({"/home","/"})
+//	@GetMapping("/home")
 	public ModelAndView homePage() {
 		
 		ModelAndView mav=new ModelAndView("index.html");
@@ -82,6 +83,11 @@ public class MainController {
 		return "ProgrammerInfo.html";
 	}
 	
+	@GetMapping("/directHome")
+	public String directHome() {
+		return "redirect:/home";
+	}
+	
 	@GetMapping("/deleteProgrammer")
 	public String deleteProgrammer(@RequestParam int pId) {
 		
@@ -98,11 +104,12 @@ public class MainController {
 //		Optional<Programmer> w=pr.findById(programmer.getpId());
 //		w.setpName(programmer.getpName());
 		Programmer p=pr.getOne(programmer.getpId());
+	
 		p.setpName(programmer.getpName());
 		p.setpLang(programmer.getpLang());
 		
 		pr.save(p);
-		return "ProgrammerInfo.html";
+		return "redirect:/home";
 	
 	}
 	

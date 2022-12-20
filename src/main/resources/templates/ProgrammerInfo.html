@@ -2,14 +2,53 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/CSS/index.css}">
 <title>Insert title here</title>
 </head>
-<body style="margin-top: 120px;  margin-left:600px; ">
-<h1>Programmer Info</h1>
+<body >
+<!-- Importing Navbar -->
+<header th:insert="navbar.html::navbar"></header >
 
-<h3 th:text="${programmer.pId}"></h3>
+<h1 align="center">Programmer Info</h1>
+<hr/>
+<div text-align="center">
+<div  align="center">
+	
+<div class="card text-white bg-dark mb-3" style="max-width: 24rem;">
+  
+  <div class="card-body">
+  <div class="row">
+  	<h3>Programmers Id:</h3><h5 class="card-text" th:text="${programmer.pId}"></h5>
+  	</div>
+  	<div class="row">
+    <h3>Programmers Name:</h3><h5 class="card-text" th:text="${programmer.pName}"></h5>
+    </div>
+    <div class="row">
+    <h3>Programmers Language:</h3><h5 class="card-text" th:text="${programmer.pLang}"></h5>
+    </div>
+    
+  </div>
+ 
+</div>
+	
+	<!--  
+	<form action="directHome" method="get">
+    <button type="submit" class="btn btn-primary">Home</button>
+    </form> -->
+    
+	</div>	
+<!--<h3 th:text="${programmer.pId}"></h3>
 <h3 th:text="${programmer.pName}"></h3>
 <h3 th:text="${programmer.pLang}"></h3>
-<h3 th:text="${programmer}"></h3>
+ <h3 th:text="${programmer}"></h3> -->
+
+</div>
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

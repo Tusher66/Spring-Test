@@ -24,17 +24,52 @@
 	<div class="row">
 		<div class="col-sm-6 ">
 			<fieldset class="border">
-   				<legend  class="float-none w-auto p-2">Programmer Add</legend>
+   				<legend  class="float-none w-auto p-2"> Add Programmer</legend>
 				<form action="addProgrammer1" method="post" enctype="multipart/formdata" >
 					<div class="mb-3">
 					  <label for="exampleFormControlInput1" class="form-label">Name</label>
-					  <input type="text" name="pName" class="form-control" id="exampleFormControlInput1" placeholder="Name">
+					  <input type="text" name="pName" class="form-control" id="exampleFormControlInput1" placeholder="Programmer Name">
 					</div>
 					<div class="mb-3">
 					  <label for="exampleFormControlInput2" class="form-label">Language</label>
-					  <input type="text" name="pLang" class="form-control" id="exampleFormControlInput2" placeholder="Language">
+					  <input type="text" name="pLang" class="form-control" id="exampleFormControlInput2" placeholder="Programmer Language">
 					</div>
-					<button type="submit" class="btn btn-primary">Submit</button>
+					<button type="submit" class="btn btn-primary">ADD</button>
+				</form>
+			</fieldset><br>
+			
+			<fieldset class="border">
+   				<legend  class="float-none w-auto p-2">Delete Programmer</legend>
+			
+			<form action="deleteProgrammer" method="GET">
+			
+			<div class="mb-3">
+					  <label for="exampleFormControlInput2" class="form-label">Id </label>
+					  <input type="number" name="pId" class="form-control" id="exampleFormControlInput2" placeholder="Programmer Id">
+			</div>
+		<button class="btn btn-primary" type="submit">Delete</button>
+		</form>
+
+		</fieldset><br>
+		
+		
+		
+		<fieldset class="border">
+   				<legend  class="float-none w-auto p-2">Update Programmer</legend>
+				<form action="updateProgrammer" method="POST" enctype="multipart/formdata" >
+					<div class="mb-3">
+					  <label for="exampleFormControlInput1" class="form-label">Id</label>
+					  <input type="number" name="pId" class="form-control" id="exampleFormControlInput1" placeholder="Programmer Id">
+					</div>
+					<div class="mb-3">
+					  <label for="exampleFormControlInput1" class="form-label">Name</label>
+					  <input type="text" name="pName" class="form-control" id="exampleFormControlInput1" placeholder="Programmer Name">
+					</div>
+					<div class="mb-3">
+					  <label for="exampleFormControlInput2" class="form-label">Language</label>
+					  <input type="text" name="pLang" class="form-control" id="exampleFormControlInput2" placeholder="Programmer Language">
+					</div>
+					<button type="submit" class="btn btn-primary">Update</button>
 				</form>
 			</fieldset>
 		</div>
@@ -44,7 +79,7 @@
    		<legend  class="float-none w-auto p-2">Programmer's</legend>
 		<table class="table">
   <thead class="table-dark">
-     <th scope="col">#</th>
+     <th scope="col">Programmers Id</th>
       <th scope="col">Name</th>
       <th scope="col">Language</th>
      <!-- <th scope="col">Status</th>
@@ -56,6 +91,7 @@
       <td th:text="${programmers.pId}" />
       <td th:text="${programmers.pName}" />
       <td th:text="${programmers.pLang}" />
+      <td><a></a>
      
       
     </tr>
@@ -66,6 +102,7 @@
 </fieldset>
 		</div>		
 	</div>
+	
 
 </div>
 
