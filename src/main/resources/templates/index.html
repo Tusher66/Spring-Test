@@ -34,11 +34,11 @@
 					  <label for="exampleFormControlInput2" class="form-label">Language</label>
 					  <input type="text" name="pLang" class="form-control" id="exampleFormControlInput2" placeholder="Programmer Language">
 					</div>
-					<button type="submit" class="btn btn-primary">ADD</button>
+					<button type="submit" class="btn btn-primary">Add</button>
 				</form>
 			</fieldset><br>
 			
-			<fieldset class="border">
+			<!--  <fieldset class="border">
    				<legend  class="float-none w-auto p-2">Delete Programmer</legend>
 			
 			<form action="deleteProgrammer" method="GET">
@@ -51,6 +51,7 @@
 		</form>
 
 		</fieldset><br>
+		
 		
 		
 		
@@ -71,7 +72,26 @@
 					</div>
 					<button type="submit" class="btn btn-primary">Update</button>
 				</form>
-			</fieldset>
+			</fieldset> 
+			
+			<fieldset class="border">
+   				<legend  class="float-none w-auto p-2">Update Programmer</legend>
+				<form action="#"  th:object="${program}" method="post" enctype="multipart/formdata" >
+					<div class="mb-3">
+					  <label for="pId" class="form-label">Id</label>
+					  <input type="number" th:field="*{pId}" name="pId1" class="form-control" id="pId2" placeholder="Programmer Id">
+					</div>
+					<div class="mb-3">
+					  <label for="exampleFormControlInput1" class="form-label">Name</label>
+					  <input type="text" th:field="*{pName}" name="pName"  class="form-control" id="exampleFormControlInput1" placeholder="Programmer Name">
+					</div>
+					<div class="mb-3">
+					  <label for="exampleFormControlInput2" class="form-label">Language</label>
+					  <input type="text" th:field="*{pLang}" name="pLang"  class="form-control" id="exampleFormControlInput2" placeholder="Programmer Language">
+					</div>
+					<button type="submit" class="btn btn-primary">Update</button>
+				</form>
+			</fieldset> -->
 		</div>
 		
 		<div class="col-sm-6">
@@ -82,6 +102,8 @@
      <th scope="col">Programmers Id</th>
       <th scope="col">Name</th>
       <th scope="col">Language</th>
+      <th scope="col">Update</th>
+      <th scope="col">Action</th>
      <!-- <th scope="col">Status</th>
       <th scope="col">Update</th>
       -->
@@ -91,7 +113,8 @@
       <td th:text="${programmers.pId}" />
       <td th:text="${programmers.pName}" />
       <td th:text="${programmers.pLang}" />
-      <td><a></a>
+      <td><a th:href="@{/edit/{pId}(pId=${programmers.pId})}" class="btn btn-primary">Edit</a>
+      <td><a th:href="@{/deleteProgrammer1/{pId}(pId=${programmers.pId})}" class="btn btn-primary">Delete</a>
      
       
     </tr>

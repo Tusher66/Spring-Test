@@ -7,14 +7,18 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import javax.validation.Valid;
 
 import com.example.demoMVC.model.Programmer;
 import com.example.demoMVC.repository.ProgrammerRepo;
@@ -33,7 +37,7 @@ public class MainController {
 	public String homePage1() {
 		
 //		return "index.html";
-		return "HomePage.html";
+		return "allProgrammers.html";
 	}
 	
 	@GetMapping({"/home","/"})
@@ -74,31 +78,57 @@ public class MainController {
 	@PostMapping("/findById")
 	public String findById(@RequestParam int pId, Model model) {
 		
-		System.out.println(pId);
+		
 		
 		Optional<Programmer> q=pr.findById(pId);
 
+		System.out.println(q);
+		
 		model.addAttribute("programmer",q.get());
 		
 		return "ProgrammerInfo.html";
 	}
 	
-	@GetMapping("/directHome")
-	public String directHome() {
+	@GetMapping("edit/{pId}")
+	public String showEditData(@PathVariable("pId") int pId, Model model) {
+
+		Optional<Programmer> pro=pr.findById(pId);
+		
+		model.addAttribute("programmer",pro);
+		System.out.println(pro);
+		
+		return "allProgrammers.html";
+	}
+	
+	
+	@PostMapping("update/{pId}")
+	public String updateData(@PathVariable("pId") int pId, @ModelAttribute Programmer programmer, BindingResult result,
+	        Model model) {
+	        if (result.hasErrors()) {
+	        	programmer.setpId(pId);
+	            return "allProgrammers.html";
+	        }
+
+	        pr.save(programmer);
+	        model.addAttribute("programmer", pr.findAll());
+		
 		return "redirect:/home";
 	}
 	
-	@GetMapping("/deleteProgrammer")
-	public String deleteProgrammer(@RequestParam int pId) {
+	@PostMapping("update1/{pId}")
+	public String updateData1(@PathVariable("pId") int pId, @ModelAttribute Programmer programmer, BindingResult result,
+	        Model model) {
+//	       
+		Programmer p=pr.getOne(programmer.getpId());
 		
-		pr.deleteById(pId);
+		p.setpName(programmer.getpName());
+		p.setpLang(programmer.getpLang());
 		
+		pr.save(p);
 		return "redirect:/home";
 	}
-	
 	
 	@PostMapping("/updateProgrammer")
-
 	public String updateProgrammer(@ModelAttribute Programmer programmer) {
 		
 //		Optional<Programmer> w=pr.findById(programmer.getpId());
@@ -112,6 +142,35 @@ public class MainController {
 		return "redirect:/home";
 	
 	}
+	
+	
+	
+	
+	@GetMapping("edit/directHome")
+	public String directHome() {
+		return "redirect:/home";
+	}
+	
+//	@GetMapping("/deleteProgrammer")
+//	public String deleteProgrammer(@RequestParam int pId) {
+//		
+//		pr.deleteById(pId);
+//		
+//		return "redirect:/home";
+//	}
+	
+	@GetMapping("/deleteProgrammer1/{pId}")
+	public String deleteProgrammer1(@PathVariable int pId) {
+		
+		pr.deleteById(pId);
+		
+		return "redirect:/home";
+	}
+	
+	
+	
+
+	
 	
 //	@RequestMapping("/addProgrammer")
 //	public String addProgrammer(@RequestParam int pId,@RequestParam String pName, 

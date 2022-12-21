@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<!--<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
+      <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>All Programmers Info</title>
@@ -20,3 +21,45 @@
 
 </body>
 </html>
+
+-->
+
+<html>
+<head>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/CSS/index.css}">
+</head>
+
+ <fieldset class="border">
+   				<legend  class="float-none w-auto p-2">Update Programmer</legend>
+				<!--  <form action="#" th:action="@{update/{pId}(pId=${programmer.pId})}"  th:object="${programmer}" method="post" enctype="multipart/formdata" >-->
+				<form action="#"  th:object="${programmer}" method="post" enctype="multipart/formdata" >
+					<div class="mb-3">
+					  <label for="pId" class="form-label">Id</label>
+					  <input type="number" th:field="*{pId}" name="pId1" class="form-control" id="pId2" placeholder="Programmer Id">
+					</div>
+					<div class="mb-3">
+					  <label for="exampleFormControlInput1" class="form-label">Name</label>
+					  <input type="text" th:field="*{pName}" name="pName"  class="form-control" id="exampleFormControlInput1" placeholder="Programmer Name">
+					</div>
+					<div class="mb-3">
+					  <label for="exampleFormControlInput2" class="form-label">Language</label>
+					  <input type="text" th:field="*{pLang}" name="pLang"  class="form-control" id="exampleFormControlInput2" placeholder="Programmer Language">
+					</div>
+					<button type="submit" class="btn btn-primary">Update</button>
+				</form>
+				
+				<form action="edit/directHome" method="get">
+    <button type="submit" class="btn btn-primary">Cancle</button>
+    </form> 
+			</fieldset>  
+   
+   
+ 
+   <!-- Bootstrap JS -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   
+   
+   </html>
