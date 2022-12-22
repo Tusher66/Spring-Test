@@ -34,8 +34,8 @@
 
  <fieldset class="border">
    				<legend  class="float-none w-auto p-2">Update Programmer</legend>
-				<!--  <form action="#" th:action="@{update/{pId}(pId=${programmer.pId})}"  th:object="${programmer}" method="post" enctype="multipart/formdata" >-->
-				<form action="#"  th:object="${programmer}" method="post" enctype="multipart/formdata" >
+				  <form action="#" th:action="@{update/{pId}(pId=${programmers.pId})}"  th:object="${programmer}" method="post" enctype="multipart/formdata" >
+				<!--<form action="#"  th:object="${programmer}" method="post" enctype="multipart/formdata" >-->
 					<div class="mb-3">
 					  <label for="pId" class="form-label">Id</label>
 					  <input type="number" th:field="*{pId}" name="pId1" class="form-control" id="pId2" placeholder="Programmer Id">

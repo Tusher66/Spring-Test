@@ -102,7 +102,7 @@ public class MainController {
 	
 	
 	@PostMapping("update/{pId}")
-	public String updateData(@PathVariable("pId") int pId, @ModelAttribute Programmer programmer, BindingResult result,
+	public String updateData(@PathVariable("pId") int pId, @Valid Programmer programmer, BindingResult result,
 	        Model model) {
 	        if (result.hasErrors()) {
 	        	programmer.setpId(pId);
@@ -115,18 +115,7 @@ public class MainController {
 		return "redirect:/home";
 	}
 	
-	@PostMapping("update1/{pId}")
-	public String updateData1(@PathVariable("pId") int pId, @ModelAttribute Programmer programmer, BindingResult result,
-	        Model model) {
-//	       
-		Programmer p=pr.getOne(programmer.getpId());
-		
-		p.setpName(programmer.getpName());
-		p.setpLang(programmer.getpLang());
-		
-		pr.save(p);
-		return "redirect:/home";
-	}
+	
 	
 	@PostMapping("/updateProgrammer")
 	public String updateProgrammer(@ModelAttribute Programmer programmer) {
