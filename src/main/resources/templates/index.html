@@ -118,8 +118,10 @@
       <td th:text="${programmers.pId}" />
       <td th:text="${programmers.pName}" />
       <td th:text="${programmers.pLang}" />
-      <td><a th:href="@{/edit/{pId}(pId=${programmers.pId})}" class="btn btn-primary">Edit</a>
-      <td><button class="btn btn-primary" onclick="myFun()"><a th:href="@{/deleteProgrammer1/{pId}(pId=${programmers.pId})}" ></a>Delete</button>
+      <td><a th:href="@{/edit/{pId}(pId=${programmers.pId})}" class="btn btn-primary">Edit</a></td>
+      <td><a th:href="@{/deleteProgrammer1/{pId}(pId=${programmers.pId})}" class="btn btn-primary">Delete</a></td>
+     
+     
      
       
     </tr>
