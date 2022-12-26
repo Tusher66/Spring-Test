@@ -35,11 +35,16 @@
 					  <label for="exampleFormControlInput2" class="form-label">Language</label>
 					  <input type="text" name="pLang" class="form-control" id="exampleFormControlInput2" placeholder="Programmer Language">
 					</div>
-					<button type="submit" th:onclick="demo()" class="btn btn-primary">Add</button>
-					<button type="button" class="btn btn-primary">Cancel</button>
+					<div>
+					<button type="submit"  class="btn btn-primary">Add</button>
+					<a href="http://192.168.78.179:8081" type="button" class="btn btn-primary">Cancel</a>
+					</div>
 				</form>
 			</fieldset><br>
 			
+			
+			
+	
 			
 			
 			
@@ -119,10 +124,29 @@
       <td th:text="${programmers.pName}" />
       <td th:text="${programmers.pLang}" />
       <td><a th:href="@{/edit/{pId}(pId=${programmers.pId})}" class="btn btn-primary">Edit</a></td>
-      <td><a th:href="@{/deleteProgrammer1/{pId}(pId=${programmers.pId})}" class="btn btn-primary">Delete</a></td>
+      <!--<td><a th:href="@{/deleteProgrammer1/{pId}(pId=${programmers.pId})}" class="btn btn-primary">Delete</a></td>-->
+      <td><a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteModal">
+  Delete
+</a></td>
      
      
-     
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirm delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure want to delete this Programmer InFo?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <a th:href="@{/deleteProgrammer1/{pId}(pId=${programmers.pId})}" type="button" class="btn btn-danger">&nbsp;Yes</a>
+      </div>
+    </div>
+  </div>
+</div>
       
     </tr>
     

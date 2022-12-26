@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import javax.validation.Valid;
+
 
 import com.example.demoMVC.model.Programmer;
 import com.example.demoMVC.repository.ProgrammerRepo;
@@ -101,13 +101,13 @@ public class MainController {
 	}
 	
 	
-	@PostMapping("update/{pId}")
-	public String updateData(@PathVariable("pId") int pId, @Valid Programmer programmer, BindingResult result,
+	@PostMapping("/update")
+	public String updateData( @ModelAttribute Programmer programmer, BindingResult result,
 	        Model model) {
-	        if (result.hasErrors()) {
-	        	programmer.setpId(pId);
-	            return "allProgrammers.html";
-	        }
+//	        if (result.hasErrors()) {
+//	        	programmer.setpId(pId);
+//	            return "allProgrammers.html";
+//	        }
 
 	        pr.save(programmer);
 	        model.addAttribute("programmer", pr.findAll());

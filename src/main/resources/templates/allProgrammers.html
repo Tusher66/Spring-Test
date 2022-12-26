@@ -32,10 +32,14 @@
 <link rel="stylesheet" th:href="@{/CSS/index.css}">
 </head>
 
+
+<div class="row">
+		<div class="col-sm-6 ">
  <fieldset class="border">
    				<legend  class="float-none w-auto p-2">Update Programmer</legend>
-				  <form action="#" th:action="@{update/{pId}(pId=${programmers.pId})}"  th:object="${programmer}" method="post" enctype="multipart/formdata" >
+				  <!--<form action="#" th:action="@{update/{pId}(pId=${programmers.pId})}"  th:object="${programmer}" method="post" enctype="multipart/formdata" >-->
 				<!--<form action="#"  th:object="${programmer}" method="post" enctype="multipart/formdata" >-->
+				<form action="#" th:action="@{/update}"  th:object="${programmer}" method="post" enctype="multipart/formdata" >
 					<div class="mb-3">
 					  <label for="pId" class="form-label">Id</label>
 					  <input type="number" th:field="*{pId}" name="pId1" class="form-control" id="pId2" placeholder="Programmer Id">
@@ -49,12 +53,14 @@
 					  <input type="text" th:field="*{pLang}" name="pLang"  class="form-control" id="exampleFormControlInput2" placeholder="Programmer Language">
 					</div>
 					<button type="submit" class="btn btn-primary">Update</button>
+					<a href="http://192.168.78.179:8081" type="button" class="btn btn-primary">Cancle</a>
 				</form>
 				
-				<form action="edit/directHome" method="get">
-    <button type="submit" class="btn btn-primary">Cancle</button>
-    </form> 
-			</fieldset>  
+		
+			</fieldset> 
+			
+		</div>
+		</div> 
    
    
  

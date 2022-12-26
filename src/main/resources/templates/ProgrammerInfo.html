@@ -14,23 +14,45 @@
 <h1 align="center">Programmer Info</h1>
 <hr/>
 <div text-align="center">
-<div  align="center">
+<div  >
 	
-<div class="card text-white bg-dark mb-3" style="max-width: 24rem;">
+<div class="container">
+<div class="card text-white bg-dark mb-3">
   
   <div class="card-body">
   <div class="row">
-  	<h3>Programmers Id:</h3><h5 class="card-text" th:text="${programmer.pId}"></h5>
+  	 <div class="col-md-6"><h4>Programmers Id:</h4></div>
+  	
+  	 <div class="col-md-6"><h4 class="card-text" th:text="${programmer.pId}"></h4></div>
+  	
   	</div>
   	<div class="row">
-    <h3>Programmers Name:</h3><h5 class="card-text" th:text="${programmer.pName}"></h5>
+  	
+  	<div class="col-md-6">
+  	<h4>Programmers Name:</h4>
+  	</div>
+  	
+  	 <div class="col-md-6">
+  	 <h4 class="card-text" th:text="${programmer.pName}"></h4>
+  	 </div>
+  	
+    
     </div>
     <div class="row">
-    <h3>Programmers Language:</h3><h5 class="card-text" th:text="${programmer.pLang}"></h5>
+    
+    <div class="col-md-6">
+  	<h4>Programmers Language:</h2>
+  	</div>
+  	
+  	 <div class="col-md-6">
+  	 <h4 class="card-text" th:text="${programmer.pLang}"></h4>
+  	 </div>
+  	
     </div>
     
   </div>
  
+</div>
 </div>
 	
 	<!--  
