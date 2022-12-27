@@ -32,16 +32,20 @@
 <link rel="stylesheet" th:href="@{/CSS/index.css}">
 </head>
 
+<!-- Importing Navbar -->
+<header th:insert="navbar.html::navbar"></header >
 
-<div class="row">
-		<div class="col-sm-6 ">
- <fieldset class="border">
-   				<legend  class="float-none w-auto p-2">Update Programmer</legend>
+<div class="container">
+<div class="col-sm-6 ">
+   				<div class="card border-light mb-3">
+   				<div  class="card-header">Update Programmer</div>
+   				<div class="card-body">
 				  <!--<form action="#" th:action="@{update/{pId}(pId=${programmers.pId})}"  th:object="${programmer}" method="post" enctype="multipart/formdata" >-->
 				<!--<form action="#"  th:object="${programmer}" method="post" enctype="multipart/formdata" >-->
 				<form action="#" th:action="@{/update}"  th:object="${programmer}" method="post" enctype="multipart/formdata" >
 					<div class="mb-3">
 					  <label for="pId" class="form-label">Id</label>
+					  <!--<input type="number" th:field="*{pId}" name="pId1" class="form-control" id="pId2" placeholder="Programmer Id">-->
 					  <input type="number" th:field="*{pId}" name="pId1" class="form-control" id="pId2" placeholder="Programmer Id">
 					</div>
 					<div class="mb-3">
@@ -55,12 +59,13 @@
 					<button type="submit" class="btn btn-primary">Update</button>
 					<a href="http://192.168.78.179:8081" type="button" class="btn btn-primary">Cancle</a>
 				</form>
-				
-		
-			</fieldset> 
+				</div>
+   				</div>
 			
+		
+			</div>
 		</div>
-		</div> 
+	
    
    
  

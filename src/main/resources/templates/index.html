@@ -24,7 +24,7 @@
 	<hr/>
 	<div class="row">
 		<div class="col-sm-6 ">
-			<fieldset class="border">
+			<fieldset >
    				<legend  class="float-none w-auto p-2"> Add Programmer</legend>
 				<form action="addProgrammer1" method="post" enctype="multipart/formdata" >
 					<div class="mb-3">
@@ -105,11 +105,11 @@
 		</div>
 		
 		<div class="col-sm-6">
-		<fieldset class="border">
+		<fieldset >
    		<legend  class="float-none w-auto p-2">Programmer's</legend>
 		<table class="table">
   <thead class="table-dark">
-     <th scope="col">Programmers Id</th>
+     <th scope="col">Id</th>
       <th scope="col">Name</th>
       <th scope="col">Language</th>
       <th scope="col">Update</th>
@@ -125,12 +125,11 @@
       <td th:text="${programmers.pLang}" />
       <td><a th:href="@{/edit/{pId}(pId=${programmers.pId})}" class="btn btn-primary">Edit</a></td>
       <!--<td><a th:href="@{/deleteProgrammer1/{pId}(pId=${programmers.pId})}" class="btn btn-primary">Delete</a></td>-->
-      <td><a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteModal">
-  Delete
-</a></td>
+      <td><a type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
+      th:attr="data-bs-target='#deleteModal'+${programmers.pId}">Delete</a></td>
      
      
-  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" th:id="'deleteModal'+${programmers.pId}" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -138,7 +137,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>Are you sure want to delete this Programmer InFo?</p>
+        <p>Are you sure want to delete this Programmer Information?</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
