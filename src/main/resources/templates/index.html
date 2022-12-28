@@ -48,7 +48,7 @@
 			
 			
 			
-			<!--  <fieldset class="border">
+			  <!--<fieldset class="border">
    				<legend  class="float-none w-auto p-2">Delete Programmer</legend>
 			
 			<form action="deleteProgrammer" method="GET">
@@ -65,24 +65,6 @@
 		
 		
 		
-		<fieldset class="border">
-   				<legend  class="float-none w-auto p-2">Update Programmer</legend>
-				<form action="updateProgrammer" method="POST" enctype="multipart/formdata" >
-					<div class="mb-3">
-					  <label for="exampleFormControlInput1" class="form-label">Id</label>
-					  <input type="number" name="pId" class="form-control" id="exampleFormControlInput1" placeholder="Programmer Id">
-					</div>
-					<div class="mb-3">
-					  <label for="exampleFormControlInput1" class="form-label">Name</label>
-					  <input type="text" name="pName" class="form-control" id="exampleFormControlInput1" placeholder="Programmer Name">
-					</div>
-					<div class="mb-3">
-					  <label for="exampleFormControlInput2" class="form-label">Language</label>
-					  <input type="text" name="pLang" class="form-control" id="exampleFormControlInput2" placeholder="Programmer Language">
-					</div>
-					<button type="submit" class="btn btn-primary">Update</button>
-				</form>
-			</fieldset> 
 			
 			<fieldset class="border">
    				<legend  class="float-none w-auto p-2">Update Programmer</legend>
@@ -126,11 +108,11 @@
       <td><a th:href="@{/edit/{pId}(pId=${programmers.pId})}" class="btn btn-primary">Edit</a></td>
       <!--<td><a th:href="@{/deleteProgrammer1/{pId}(pId=${programmers.pId})}" class="btn btn-primary">Delete</a></td>-->
       <td><a type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
-      th:attr="data-bs-target='#deleteModal'+${programmers.pId}">Delete</a></td>
+      		th:attr="data-bs-target='#deleteModal'+${programmers.pId}">Delete</a></td>
      
      
   <div class="modal fade" th:id="'deleteModal'+${programmers.pId}" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Confirm delete</h5>
@@ -146,11 +128,10 @@
     </div>
   </div>
 </div>
-      
-    </tr>
+</tr>
     
    
-  </tbody>
+</tbody>
 </table>
 </fieldset>
 		</div>		
